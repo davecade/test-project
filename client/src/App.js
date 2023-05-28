@@ -10,10 +10,10 @@ function App() {
   //   getText();
   // }, []);
 
-  // const getText = async () => {
-  //   const response = await api.get('/');
-  //   setFontendText(response.data);
-  // };
+  const getText = async () => {
+    const response = await api.get('/hello');
+    setFontendText(response.data);
+  };
 
   return (
     <div className="App">
@@ -28,6 +28,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={getText}>Press</button>
       </header>
     </div>
   );
