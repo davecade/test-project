@@ -9,7 +9,7 @@ export class AppController {
 
   @Get()
   root(@Req() req: Request, @Res() res: Response): void {
-    res.sendFile(join(__dirname, '..', '..', 'client', 'build', 'index.html'));
+    res.sendFile(join(__dirname, 'client', 'build', 'index.html'));
   }
 
   // @Get()
