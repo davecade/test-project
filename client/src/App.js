@@ -6,10 +6,6 @@ import api from './api/api';
 function App() {
   const [fontendText, setFontendText] = useState('HElOooOOO');
 
-  // useEffect(() => {
-  //   getText();
-  // }, []);
-
   const getText = async () => {
     const response = await api.get('/hello');
     setFontendText(response.data);
