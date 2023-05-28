@@ -6,8 +6,19 @@ import { join } from 'path'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const server = express();
   app.use(cors());
-  app.use(express.static(join(__dirname, '..', 'client', 'build'))); // Serve the React build files
+  
+  if (process.env.NODE_ENV === 'production') {
+    server.use(express.static(join(__dirname, '..', 'client', 'build')));
+
+    server.get('*', (req, res) => {
+      res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
+    });
+
+    app.use(server);
+  }
+
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
