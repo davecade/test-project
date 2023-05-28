@@ -7,10 +7,10 @@ import { join } from 'path';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('/')
-  root(@Req() req: Request, @Res() res: Response): void {
-    res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
-  }
+  // @Get('/')
+  // root(@Req() req: Request, @Res() res: Response): void {
+  //   res.sendFile(join(__dirname, '..', 'client', 'build', 'index.html'));
+  // }
 
   @Get('/hello')
   getHello(): string {

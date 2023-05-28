@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { join } from 'path'
 import { ServeStaticModule } from '@nestjs/serve-static'
-//import { FallbackController } from './fallback.controller';
 
 @Module({
   imports: [
