@@ -6,9 +6,10 @@ import { ServeStaticModule } from '@nestjs/serve-static'
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
+    ...(process.env.NODE_ENV === 'production' ?
+    [ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'client/build'),
-    }),
+    })] : []),
   ],
   controllers: [AppController],
   providers: [AppService],
