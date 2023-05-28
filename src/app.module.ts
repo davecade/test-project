@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { join } from 'path'
 import { ServeStaticModule } from '@nestjs/serve-static'
+import { FallbackController } from './fallback.controller';
 
 @Module({
   imports: [
@@ -10,7 +11,7 @@ import { ServeStaticModule } from '@nestjs/serve-static'
       rootPath: join(__dirname, '..', 'client/build'),
     }),
   ],
-  controllers: [AppController],
+  controllers: [AppController, FallbackController],
   providers: [AppService],
 })
 export class AppModule {}
